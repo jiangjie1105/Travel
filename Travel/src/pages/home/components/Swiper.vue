@@ -1,6 +1,6 @@
 <template>
-    <swiper :options="swiperOptions">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+    <swiper :options="swiperOptions" v-if= "list.length">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl">
       </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -10,12 +10,20 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOptions: {
         pagination: '.swiper-pagination',
         loop: true
       },
+      // computed: {
+      //   showSwiper () {
+      //     return this.list.length
+      //   }
+      // },此功能是代替在模板中写语法的功能
       swiperList: [{
         id: '0001',
         imgUrl: 'https://imgs.qunarzz.com/sight/p0/1907/cd/cdb4c750676d6d02a3.img.jpg_710x360_c4abf30c.jpg'
