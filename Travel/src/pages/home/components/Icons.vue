@@ -117,4 +117,4 @@ export default {
         color: $darkTextColor
         overflow: hidden
         ellipsis()
-</style>>
+</style>
